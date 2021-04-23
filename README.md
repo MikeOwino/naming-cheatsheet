@@ -43,7 +43,7 @@ const friends = ['Kate', 'John']
 
 ## Naming convention
 
-Pick **one** naming convention and follow it. It may be `camelCase`, or `snake_case`, or anyhow else, it does not matter. What matters is for it to remain consistent.
+Pick **one** naming convention and follow it. It may be `camelCase`, `PascalCase`, `snake_case`, or anything else, as long as it remains consistent. Many programming languages have their own traditions regarding naming conventions; check the documentation for your language or study some popular repositories on Github!
 
 ```js
 /* Bad */
@@ -76,7 +76,7 @@ const shouldPaginatize = a > 10 // Made up verbs are so much fun!
 /* Good */
 const postCount = 5
 const hasPagination = postCount > 10
-const shouldDisplayPagination = postCount > 10 // alternatively
+const shouldPaginate = postCount > 10 // alternatively
 ```
 
 ## Avoid contractions
@@ -135,8 +135,8 @@ Take a look at how this pattern may be applied in the table below.
 
 | Name                   | Prefix   | Action (A) | High context (HC) | Low context (LC) |
 | ---------------------- | -------- | ---------- | ----------------- | ---------------- |
-| `getPost`              |          | `get`      | `Post`            |                  |
-| `getPostData`          |          | `get`      | `Post`            | `Data`           |
+| `getUser`              |          | `get`      | `User`            |                  |
+| `getUserMessages`      |          | `get`      | `User`            | `Messages`       |
 | `handleClickOutside`   |          | `handle`   | `Click`           | `Outside`        |
 | `shouldDisplayMessage` | `should` | `Display`  | `Message`         |                  |
 
@@ -241,7 +241,7 @@ Creates new data from the existing one. Mostly applicable to strings, objects, o
 
 ```js
 function composePageUrl(pageName, pageId) {
-  return `${pageName.toLowerCase()}-${pageId}`
+  return (pageName.toLowerCase() + '-' + pageId)
 }
 ```
 
@@ -265,11 +265,11 @@ link.addEventListener('click', handleLinkClick)
 
 A domain that a function operates on.
 
-A function is often an action on _something_. It is important to state what is its operable domain, or at least an expected data type.
+A function is often an action on _something_. It is important to state what its operable domain is, or at least an expected data type.
 
 ```js
 /* A pure function operating with primitives */
-function filter(predicate, list) {
+function filter(list, predicate) {
   return list.filter(predicate)
 }
 
